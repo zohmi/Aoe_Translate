@@ -60,7 +60,8 @@ class Aoe_Translate_Shell_Translate extends Mage_Shell_Abstract
      */
     public function exportTranslationTableAction()
     {
-        $resourceCollection = Mage::getResourceModel('aoe_translate/log_collection');
+        /** @var Aoe_Translate_Resource_Log_Collection $resourceCollection */
+        $resourceCollection = Mage::getResourceModel('aoe_translate/log_collection')->setOrder('module', 'asc');
         $translateItems = $resourceCollection->getData();
 
         foreach ($translateItems as $item) {
